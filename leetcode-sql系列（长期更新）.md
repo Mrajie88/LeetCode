@@ -28,3 +28,18 @@ tips:这个题比较坑的地方是需要把返回查询结果列名 as为Employ
     delete p1 from Person p1,Person p2
     where p1.Email = p2.Email and p1.Id>p2.Id
 tips:防止思维盲点。本题考查delete语句。我们通过自连接来处理复杂删除约束条件，这样方便处理。
+## 197.上升的温度
+    select w1.Id
+	from Weather w1 join Weather w2 on    DATEDIFF(w1.RecordDate,w2.RecordDate) = 1
+	where w1.Temperature>w2.Temperature
+tips:本题关键在于处理日期数据。dateiff(开始事件，结束时间) 为开始时间和结束时间的差值。
+## 595.大的国家
+    select name,population,area
+	from World
+	where area>3000000 or population>25000000
+## 596.超过5名学生的课
+    select class
+	from courses
+	group by class
+	having count(distinct student)>=5
+tips:考察聚合函数和去重关键字的联合使用。
