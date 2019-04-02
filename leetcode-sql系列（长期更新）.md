@@ -43,3 +43,13 @@ tips:本题关键在于处理日期数据。dateiff(开始事件，结束时间)
 	group by class
 	having count(distinct student)>=5
 tips:考察聚合函数和去重关键字的联合使用。
+## 620.有趣的电影
+    select *
+	from cinema
+	where description != "boring" and (id%2)!=0
+	order by rating desc
+tips:sql中取模方法有两种：1.使用取模符号% 2.MOD(id,2)方法。
+## 627.交换工资
+    update salary 
+	set sex = if(sex="f","m","f")
+tips：SQL语言中支持if语句。if（表达式，真值情况，假值情况）。另外，注意update语句语法。update 表名 set 列名 = 值 where 列名= 值
